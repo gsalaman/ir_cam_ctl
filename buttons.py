@@ -26,27 +26,27 @@ class Application(Frame):
         self.QUIT["text"] = "QUIT"
         self.QUIT["fg"]   = "red"
         self.QUIT["command"] =  self.quit
-        self.QUIT.pack({"side": "left"})
+        self.QUIT.grid(row=3,column=1,columnspan=2)
 
         self.cold_down = Button(self)
         self.cold_down["text"] = "LowerCold",
         self.cold_down["command"] = self.lower_cold_bound
-        self.cold_down.pack({"side": "left"})
+        self.cold_down.grid(row=2,column=1)
 
         self.cold_up = Button(self)
         self.cold_up["text"] = "RaiseCold",
         self.cold_up["command"] = self.raise_cold_bound
-        self.cold_up.pack({"side": "left"})
+        self.cold_up.grid(row=1,column=1)
 
         self.hot_down = Button(self)
         self.hot_down["text"] = "LowerHot",
         self.hot_down["command"] = self.lower_hot_bound
-        self.hot_down.pack({"side": "left"})
+        self.hot_down.grid(row=2,column=2)
 
         self.hot_up = Button(self)
         self.hot_up["text"] = "RaiseHot",
         self.hot_up["command"] = self.raise_hot_bound
-        self.hot_up.pack({"side": "left"})
+        self.hot_up.grid(row=1,column=2)
 
     def __init__(self, master=None):
         Frame.__init__(self, master)
@@ -66,6 +66,7 @@ except:
   exit(0)
 
 root = Tk()
+root.title("IR Camera Control")
 app = Application(master=root)
 app.set_client(client)
 app.mainloop()
