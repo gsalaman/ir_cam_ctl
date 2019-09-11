@@ -1,7 +1,9 @@
 from Tkinter import *
 import paho.mqtt.client as mqtt
- 
 
+################################################
+#  Our application class definition
+################################################
 class Application(Frame):
     def set_client(self, client):
         self.client = client
@@ -81,8 +83,9 @@ class Application(Frame):
         self.createWidgets()
 
 #####################################################
+# Message callback for MQTT
+#####################################################
 def on_message(client, userdata, message):
-
   global app
 
   #print "CALLBACK"
@@ -95,9 +98,7 @@ def on_message(client, userdata, message):
     print "Unhandled message topic: ",message.topic
 
 #####################################################
-
-
-
+# Main code 
 #####################################################
 
 root = Tk()
